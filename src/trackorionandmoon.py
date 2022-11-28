@@ -78,28 +78,6 @@ def findStopTime( dates, stoptime ):
     return i
 
 
-def main_dataEPHNasa( filenames ):
-    WholetrajX = []
-    WholetrajY = []
-    WholetrajZ = []
-    Wholevel = []
-    Wholedates = []
-    utcnow = datetime.datetime.now(datetime.timezone.utc)
-    print( "UTC time now: ",utcnow)
-    stoptime = time.strptime( "2022-11-21T09:12:0", "%Y-%m-%dT%H:%M:%S" )
-    t =  Time("2022-11-21 10:00", scale='utc')
-    pos = get_body_barycentric('moon', t)
-    print (" Moon pos in AU", pos)
-    for fname in filenames:
-      dates, trajectoryX, trajectoryY, trajectoryZ, velocity = loadTrajectory(fname)
-      WholetrajX = WholetrajX + trajectoryX
-      WholetrajY = WholetrajY + trajectoryY
-      WholetrajZ = WholetrajZ + trajectoryZ
-      Wholevel = Wholevel + velocity
-      Wholedates = Wholedates + dates
-    stopindex = findStopTime( Wholedates, stoptime )
-    plot3DSeries( WholetrajX,  WholetrajY,  WholetrajZ, Wholevel, stopindex )
-
 def main_datafromHorizons( sdate, edate ):
     WholetrajX = []
     WholetrajY = []
