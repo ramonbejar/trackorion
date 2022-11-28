@@ -3,7 +3,11 @@ python program to track orion spacecraft and the moon with information from http
 
 It uses astroquery to make queries to nasa horizons system.
 
-It uses matplotlib to draw a 3D plot with the trajectory of orion and the moon.
+It uses matplotlib to draw a 3D plot with the trajectory of orion and the moon. You get something like this (this is up to November 29):
+
+![3D plot for Orion and Moon](./Orion_and_Moon.png)
+
+Moon is the gray trajectory, blue is for Orion, and the small blue sphere represents the earth (not in real scale). 
 
 ## Usage
 Must specify starting and ending dates:
