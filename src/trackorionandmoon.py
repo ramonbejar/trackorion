@@ -15,8 +15,8 @@ from astroquery.jplhorizons import Horizons
 
 # Time format in EPH for Horizons queries:
 #
-# Use utc time format :  y-m-d h:m:s utc
-# body names: 'orion' 'moon'
+#  time format :  y-m-d h:m:s  
+# body names: 'Orion' and '301' (moon)
 def loadTrajectoryFromJPLHorizons(bodyname,sdate,edate,step = '15m'):
     body = Horizons(id=bodyname, epochs = { 'start' : sdate, 'stop' : edate, 'step': '15m' }, location='500' )
     print(body)
