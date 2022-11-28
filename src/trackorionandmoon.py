@@ -12,29 +12,6 @@ from astropy.coordinates import get_body_barycentric, get_body, get_moon, Cartes
 from astropy.time import Time
 from astroquery.jplhorizons import Horizons
 
-# Time format in EPH file from NASA Orizon (UTC):
-# 2022-11-16T08:44:51.150
-
-def loadTrajectory(fname):
-    dates = []
-    trajectoryX = []
-    trajectoryY = []
-    trajectoryZ = []
-    velocity = []
-    datastarted = -1
-    f = open(fname, "r")
-    for line in f:
-        if (line.startswith("2022-")):
-          tokens = line.split()
-          dtimestr = tokens[0].split(".")[0]
-          # print (dtimestr)
-          dates.append(time.strptime( dtimestr, "%Y-%m-%dT%H:%M:%S" ))
-          trajectoryX.append(float(tokens[1]))
-          trajectoryY.append(float(tokens[2]))
-          trajectoryZ.append(float(tokens[3]))
-          velocity.append((float(tokens[4]),float(tokens[5]),float(tokens[6])))
-    f.close()
-    return dates,trajectoryX,trajectoryY,trajectoryZ,velocity
 
 # Time format in EPH for Horizons queries:
 #
@@ -67,6 +44,7 @@ def loadTrajectoryFromJPLHorizons(bodyname,sdate,edate,step = '15m'):
     trajectoryZ = []
     velocity = []
     for i in range(size):
+    # convert km to miles
        trajectoryX.append(bvectorsx[i].value * 0.621371192)
        trajectoryY.append(bvectorsy[i].value * 0.621371192 )
        trajectoryZ.append(bvectorsz[i].value * 0.621371192 )
