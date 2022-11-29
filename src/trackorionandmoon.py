@@ -15,7 +15,7 @@ from astroquery.jplhorizons import Horizons
 
 # Time format in EPH for Horizons queries:
 #
-#  time format :  y-m-d h:m:s  
+#  time format :  y-m-d h:m:s
 # body names: 'Orion' and '301' (moon)
 def loadTrajectoryFromJPLHorizons(bodyname,sdate,edate,step = '15m'):
     body = Horizons(id=bodyname, epochs = { 'start' : sdate, 'stop' : edate, 'step': '15m' }, location='500' )
@@ -90,12 +90,17 @@ def main_datafromHorizons( sdate, edate ):
     pos = get_body_barycentric('moon', lasttime)
     print (" Moon pos in AU", pos)
 
+
+
     fig,ax = plot3DSeries( [0], [0], [0], [(0,0,0)], 1, "Earth", "black", 200, None, None, False )
     dates,trajectoryX,trajectoryY,trajectoryZ,velocity = loadTrajectoryFromJPLHorizons("Orion",sdate,edate,step = '15m')
     stopindex = findStopTime( dates, lasttime )
+    ox,oy,oz = trajectoryX[stopindex-1], trajectoryY[stopindex-1],  trajectoryZ[stopindex-1]
     fig,ax = plot3DSeries( trajectoryX, trajectoryY, trajectoryZ, velocity, stopindex, "Orion", "blue", 1, fig, ax, False )
 
     dates,trajectoryX,trajectoryY,trajectoryZ,velocity = loadTrajectoryFromJPLHorizons("301",sdate,edate,step = '15m')
+    mx,my,mz =  trajectoryX[stopindex-1], trajectoryY[stopindex-1],  trajectoryZ[stopindex-1]
+    print( "Distance of Orion from the Moon: ", math.sqrt( (ox-mx)**2.0 + (oy-my)**2.0 + (oz-mz)**2.0  ))
     fig,ax = plot3DSeries( trajectoryX, trajectoryY, trajectoryZ, velocity, stopindex, "Moon", "gray", 1, fig, ax, True )
 
 
