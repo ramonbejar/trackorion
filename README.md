@@ -7,7 +7,11 @@ It uses matplotlib to draw a 3D plot with the trajectory of orion and the moon. 
 
 ![3D plot for Orion and Moon](./Orion_and_Moon.png)
 
-Moon is the gray trajectory, blue is for Orion, and the small blue sphere represents the earth (not in real scale). 
+Moon is the gray trajectory, blue is for Orion, and the small blue sphere represents the earth (not in real scale). This is at 17:00 of Monday 5 of December:
+
+![3D plot for Orion and Moon December](./Orion_and_Moon_1700_12_05_2022.png)
+
+
 
 ## Usage
 Must specify starting and ending dates:
