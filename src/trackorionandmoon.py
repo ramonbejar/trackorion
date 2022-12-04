@@ -56,6 +56,7 @@ def loadTrajectoryFromJPLHorizons(bodyname,sdate,edate,step = '15m'):
 def plot3DSeries( trajdataX, trajdataY, trajdataZ, veldata, stopindextime, bodyname, color, msize, pfig = None, pax = None, lastplot=True ):
    print(" total length: ",len(trajdataX), "stop at: ", stopindextime)
    print(" Position of ", bodyname," at stoptime: ", trajdataX[stopindextime-1], trajdataY[stopindextime-1], trajdataZ[stopindextime-1])
+   print("Velocity of ", bodyname, " at stoptime: ", math.sqrt( veldata[stopindextime-1][0]**2.0 + veldata[stopindextime-1][1]**2.0 +  veldata[stopindextime-1][2]**2.0  ))
    print( "Distance to earth: ", math.sqrt( trajdataX[stopindextime-1]**2.0 + trajdataY[stopindextime-1]**2.0 +  trajdataZ[stopindextime-1]**2.0  ))
    if (pfig == None):
      fig = plt.figure()
