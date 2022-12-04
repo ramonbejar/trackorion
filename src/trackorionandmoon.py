@@ -18,7 +18,7 @@ from astroquery.jplhorizons import Horizons
 #  time format :  y-m-d h:m:s
 # body names: 'Orion' and '301' (moon)
 def loadTrajectoryFromJPLHorizons(bodyname,sdate,edate,step = '15m'):
-    body = Horizons(id=bodyname, epochs = { 'start' : sdate, 'stop' : edate, 'step': '15m' }, location='500' )
+    body = Horizons(id=bodyname, epochs = { 'start' : sdate+' TDB', 'stop' : edate, 'step': '15m' }, location='500' )
     print(body)
     bvectors = body.vectors(refplane='earth')
     bvectors['x'].convert_unit_to('km')
