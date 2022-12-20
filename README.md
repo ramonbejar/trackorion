@@ -16,6 +16,9 @@ And this at 23:00 of Friday 9 of December, coming home ! :
 
 ![3D plot for Orion and Moon 9 of December](./Orion_and_Moon_2300_12_09_2022.png)
 
+And almost landing at Earth (Sunday 11 of December):
+
+![3D plot for Orion and Moon 11 of December](./Orion_and_Moon_1600_12_11_2022.png)
 
 ## Usage
 Must specify starting and ending dates:
