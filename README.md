@@ -27,4 +27,4 @@ Must specify starting and ending dates:
 python3 ./trackorionandmoon.py 2022-11-16 09:03:00 2022-11-28 0:0:0
 ```
 
-According to the information from Horizons, the first available date for orion is 2022-NOV-16 09:03:00.0000 TDB  (times assumed to be in TDB time)
+According to the information from Horizons, the first available date for orion is 2022-NOV-16 09:03:00.0000 TDB.  Times assumed to be in Barycentric Dynamical Time (TDB) time.
